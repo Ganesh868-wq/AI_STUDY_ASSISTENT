@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Study Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Top Navigation / Header -->
+    <header class="app-header">
+      <div class="header-branding">
+        <div class="logo-icon" aria-hidden="true">🎓</div>
+        <div>
+          <h1 class="app-title">AI Study Assistant</h1>
+          <p class="app-subtitle">Your personal companion for summaries, explanations, and practice</p>
+        </div>
+      </div>
+
+      <!-- Live Connectivity Badges -->
+      <div class="status-container">
+        <div id="backendBadge" class="status-pill status-checking" title="Backend connection status">
+          <span class="status-dot"></span>
+          <span class="status-text">Checking Backend...</span>
+        </div>
+        <div id="aiBadge" class="status-pill status-pending" title="AI API configuration status">
+          <span class="status-dot"></span>
+          <span class="status-text">AI API: Not Configured</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Chat Workspace -->
+    <main class="chat-container">
+      <!-- Quick Prompt Suggestions for Students -->
+      <section class="prompt-suggestions" aria-label="Suggested study topics">
+        <span class="suggestions-label">Try asking:</span>
+        <div class="suggestion-chips">
+          <button type="button" class="chip-btn" data-prompt="Explain how photosynthesis works in simple terms">🌱 Photosynthesis</button>
+          <button type="button" class="chip-btn" data-prompt="What is the difference between a list and a tuple in Python?">🐍 Python Lists vs Tuples</button>
+          <button type="button" class="chip-btn" data-prompt="Summarize Newton's three laws of motion with examples">⚡ Newton's Laws</button>
+          <button type="button" class="chip-btn" data-prompt="Create a 5-day study plan for exams">📅 5-Day Study Plan</button>
+        </div>
+      </section>
+
+      <!-- Message History List -->
+      <section class="messages-viewport" id="messagesViewport" aria-label="Chat history">
+        <div class="messages-list" id="messagesList">
+          <!-- Welcome Greeting Card -->
+          <div class="message-card assistant-card welcome-card">
+            <div class="message-header">
+              <span class="message-avatar">🤖</span>
+              <span class="message-sender">Study Assistant</span>
+              <span class="message-time">Just now</span>
+            </div>
+            <div class="message-body">
+              <p><strong>Welcome to your AI Study Assistant! 👋</strong></p>
+              <p>This is a full-stack starter application built with clean HTML, CSS, JavaScript, and a lightweight Python backend.</p>
+              <div class="setup-notice">
+                <span class="notice-icon">ℹ️</span>
+                <div>
+                  <strong>Configuration Status:</strong>
+                  <p>The frontend and backend communication is operational! However, no AI API key has been added yet. When you send messages, the backend will receive and acknowledge them without pretending to generate fake AI answers until you connect an API key.</p>
+                </div>
+              </div>
+              <p>Type any study question below or click one of the quick suggestions above to test the connection.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Chat Input Area -->
+      <footer class="chat-footer">
+        <form id="chatForm" class="chat-form" autocomplete="off">
+          <div class="input-wrapper">
+            <textarea
+              id="messageInput"
+              class="chat-input"
+              rows="1"
+              placeholder="Type your study question or notes here... (Press Enter to send)"
+              aria-label="Study question input"
+              required
+            ></textarea>
+            <button type="submit" id="sendBtn" class="send-btn" title="Send message">
+              <span class="send-btn-label">Send</span>
+              <svg class="send-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </div>
+          <div class="form-helper">
+            <span>Press <kbd>Enter</kbd> to send, <kbd>Shift + Enter</kbd> for a new line</span>
+            <button type="button" id="clearChatBtn" class="clear-btn">Clear Chat</button>
+          </div>
+        </form>
+      </footer>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
