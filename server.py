@@ -13,7 +13,7 @@ import urllib.error
 import urllib.request
 
 # Configuration
-PORT=INT(os.environ.get("PORT, 8000))
+PORT=int(os.environ.get("PORT, 8000))
 HOST="0.0.0.0"                        
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PUBLIC_DIR = os.path.join(BASE_DIR, "public")
