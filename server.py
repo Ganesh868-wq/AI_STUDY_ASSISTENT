@@ -16,7 +16,7 @@ import urllib.request
 PORT=int(os.environ.get("PORT", 8000))
 HOST="0.0.0.0"                        
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-PUBLIC_DIR = os.path.join(BASE_DIR, "public")
+PUBLIC_DIR = BASE_DIR
 ENV_PATH = os.path.join(BASE_DIR, ".env")
 
 
